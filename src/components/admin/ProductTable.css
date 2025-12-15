@@ -79,3 +79,62 @@
 .table-striped tbody tr:nth-of-type(even) {
   background-color: rgba(75, 12, 42, 0.1);
 }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 360px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-cancel {
+  background: #ccc;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.btn-confirm {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.modal-box {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+.modal-box h4,
+.modal-box p,
+.modal-box strong {
+  color: #212529 !important;
+}
+
+.modal-box h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.modal-box p {
+  font-size: 0.95rem;
+}

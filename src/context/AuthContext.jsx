@@ -4,14 +4,15 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
 
-  // Cargar usuario desde localStorage al entrar
+  // 🔹 Cargar sesión desde localStorage
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
-  // Guardar usuario cuando cambie
+  // 🔹 Persistir sesión
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
@@ -20,20 +21,25 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user]);
 
-  // 🔹 Login normal (usuario estándar)
-  const loginUser = () => {
-    setUser({
-      name: "Usuario",
-      role: "user",
-    });
-  };
+  // 🔐 Login con credenciales
+  const login = (username, password) => {
+    setError("");
 
-  // 🔹 Login administrador
-  const loginAdmin = () => {
-    setUser({
-      name: "Administrador",
-      role: "admin",
-    });
+    // Admin
+    if (username === "admin" && password === "admin") {
+      setUser({ name: "Administrador", role: "admin" });
+      return true;
+    }
+
+    // Usuario estándar
+    if (username === "usuario" && password === "123456") {
+      setUser({ name: "Usuario", role: "user" });
+      return true;
+    }
+
+    // Credenciales inválidas
+    setError("Usuario o contraseña incorrectos");
+    return false;
   };
 
   // 🔹 Logout
@@ -41,13 +47,21 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  // 🔹 Helpers de estado
-  const isAuth = user !== null;
+  // 🔹 Helpers
+  const isAuth = !!user;
   const isAdmin = user?.role === "admin";
 
   return (
     <AuthContext.Provider
-      value={{ user, isAuth, isAdmin, loginUser, loginAdmin, logout }}
+      value={{
+        user,
+        isAuth,
+        isAdmin,
+        login,
+        logout,
+        error,
+        setError,
+      }}
     >
       {children}
     </AuthContext.Provider>

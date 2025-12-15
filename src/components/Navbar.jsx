@@ -1,6 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import './Navbar.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -16,11 +16,15 @@ const Navbar = () => {
       <h1 className="logo">Tiendas Chichita</h1>
 
       <ul className="nav-links">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
 
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/products">Productos</Link></li>
+        <li>
+          <Link to="/products">Productos</Link>
+        </li>
 
-        {/* 🔒 Carrito solo para usuarios logueados */}
+        {/* 🛒 Carrito */}
         <li>
           {user ? (
             <Link to="/cart">Carrito</Link>
@@ -29,23 +33,23 @@ const Navbar = () => {
           )}
         </li>
 
-        {/* 👑 Botón de administrador visible solo para admin */}
+        {/* 👑 Admin */}
         {user?.role === "admin" && (
           <li>
             <Link to="/admin">Administrar</Link>
           </li>
         )}
 
-        {/* Área del usuario */}
+        {/* 👤 Usuario */}
         <li className="user-section">
           {user ? (
             <>
-              <span className="user-email">
-                {user.role === "admin" ? "Administrador" : "Usuario"}
+              <span className="user-name">
+                Hola, {user.role === "admin" ? "Administrador" : "Usuario"}
               </span>
 
               <button className="logout-btn" onClick={handleLogout}>
-                Logout
+                Cerrar sesión
               </button>
             </>
           ) : (

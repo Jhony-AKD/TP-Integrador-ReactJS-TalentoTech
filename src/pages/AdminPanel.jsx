@@ -84,8 +84,6 @@ const AdminPanel = () => {
 
   // ❌ Eliminar producto
   const handleDelete = async (id) => {
-    if (!window.confirm("¿Estás seguro que deseas eliminar este producto?")) return;
-
     try {
       const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar producto");
