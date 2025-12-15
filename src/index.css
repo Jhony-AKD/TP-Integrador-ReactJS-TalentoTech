@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+  --bordo-dark: #4b0c2a;
+  --bordo-light: #6e1d47;
+  --accent-color: #ff5a5f;
+  --accent-hover: #ff343f;
+  --text-light: #f5f5f5;
+  --text-dark: #222;
+  --bg-light: #fff;
+  --bg-dark: #1a1a1a;
+  --transition: 0.3s ease;
+  --border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+/* Estilo para que el footer siempre quede abajo */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda la altura de la ventana */
+}
+
+main {
+  flex: 1; /* el main crece para empujar el footer hacia abajo */
+}

@@ -1,0 +1,38 @@
+/* Contenedor principal de productos */
+.products-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 1.5rem !important;
+  justify-items: center !important;
+  width: 100% !important;
+  max-width: 1200px !important; /* limita ancho máximo y centra */
+  margin: 2rem auto !important;  /* centrado */
+}
+
+/* Cards: tamaño fijo máximo para que no se estiren demasiado */
+.products-container .card {
+  width: 100% !important;
+  max-width: 250px !important;
+}
+
+/* Móviles <768px */
+@media (max-width: 767px) {
+  .products-container {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Tablets 768px - 1079px */
+@media (min-width: 768px) and (max-width: 1079px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  }
+}
+
+/* Desktop ≥1080px */
+@media (min-width: 1080px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+}

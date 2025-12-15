@@ -1,0 +1,93 @@
+.card {
+  background-color: var(--bordo-light) !important;
+  color: var(--text-light) !important;
+  padding: 1.5rem;
+  border-radius: var(--border-radius) !important;
+  display: flex;
+  flex-direction: column; /* importante para separar contenido y footer */
+  justify-content: space-between; /* empuja el footer al final */
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5) !important;
+}
+
+.card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+/* Contenedor para título y descripción */
+.card-content {
+  flex: 1; /* ocupa todo el espacio disponible */
+}
+
+/* Ocultar descripción */
+.card-link .description {
+  display: none !important;
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: var(--border-radius) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5) !important;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: var(--accent-color) !important;
+  font-size: 1.05rem;
+}
+
+.btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--accent-color) !important;
+  color: var(--text-light) !important;
+  border-radius: 8px !important;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+  transition: background-color var(--transition), transform var(--transition), box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4) !important;
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

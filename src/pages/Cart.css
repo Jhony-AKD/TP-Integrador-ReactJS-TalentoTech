@@ -1,0 +1,110 @@
+.cart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--bordo-light);
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+}
+
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  background-color: #6e1d47;
+  border-radius: var(--border-radius);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cart-item:hover {
+  background-color: #7f2d55;
+  transform: translateY(-2px);
+}
+
+.item-title {
+  flex: 2;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-controls button {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  color: var(--text-light);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.quantity-controls button:active {
+  transform: scale(0.9);
+}
+
+.item-price {
+  flex: 1;
+  text-align: right;
+}
+
+.remove-btn {
+  background-color: #ff343f;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #ff1f2a;
+}
+
+.clear-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.total {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.quantity-controls .quantity {
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.quantity-controls .quantity.animate {
+  transform: scale(1.4);
+}

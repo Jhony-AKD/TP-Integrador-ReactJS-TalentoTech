@@ -1,0 +1,48 @@
+.admin-container {
+  padding: 20px;
+}
+
+.admin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.admin-card {
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.admin-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #ffd54f;
+}
+
+.btn-delete {
+  background: #ef5350;
+  color: white;
+}
+
+.btn-primary {
+  background: #42a5f5;
+  color: white;
+}

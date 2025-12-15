@@ -1,0 +1,22 @@
+/* ===== PRODUCT FORM ===== */
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #2196f3;
+  outline: none;
+}
