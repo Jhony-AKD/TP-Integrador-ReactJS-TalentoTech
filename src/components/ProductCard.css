@@ -91,3 +91,20 @@
     transform: translateY(0);
   }
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Imagen adaptable */
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botón siempre abajo */
+.card .btn {
+  margin-top: auto;
+}

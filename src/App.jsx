@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -11,14 +11,18 @@ import AdminProducts from './pages/AdminProducts';
 import Toast from './components/Toast';
 import Footer from './components/Footer';
 
-import { AuthProvider } from './context/AuthContext';
-import { CartProvider, useCart } from './context/CartContext';
+import { useCart } from './context/CartContext';
 
 import ProtectedRoute from './routes/ProtectedRoute';
 import AdminRoute from './routes/AdminRoute';
 
-const AppContent = () => {
-  const { cart, addToCart, removeFromCart, clearCart, updateQuantity, animateCart, toasts } = useCart();
+const App = () => {
+  const {
+    cart,
+    addToCart,
+    animateCart,
+    toasts
+  } = useCart();
 
   return (
     <div className="app-container">
@@ -33,7 +37,6 @@ const AppContent = () => {
           <Route path="/products" element={<Products addToCart={addToCart} />} />
           <Route path="/products/:id" element={<ProductDetail addToCart={addToCart} />} />
 
-          {/* Solo usuarios logueados */}
           <Route
             path="/cart"
             element={
@@ -43,7 +46,6 @@ const AppContent = () => {
             }
           />
 
-          {/* Solo administradores */}
           <Route
             path="/admin"
             element={
@@ -52,6 +54,7 @@ const AppContent = () => {
               </AdminRoute>
             }
           />
+
           <Route
             path="/admin/products"
             element={
@@ -61,28 +64,14 @@ const AppContent = () => {
             }
           />
 
-          {/* Login */}
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>
 
       <Footer />
 
-      {/* Toasts */}
       {toasts.length > 0 && <Toast messages={toasts} />}
     </div>
-  );
-};
-
-const App = () => {
-  return (
-    <AuthProvider>
-      <CartProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </CartProvider>
-    </AuthProvider>
   );
 };
 

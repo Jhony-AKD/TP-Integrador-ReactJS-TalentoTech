@@ -88,3 +88,14 @@
 .login-btn:hover {
   background: #d63c3c;
 }
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar h1 {
+    font-size: 1.2rem;
+  }
+}
